@@ -5,12 +5,12 @@
 %}
 
 
-%token INTEGER
+%token INTEGER OPAREN CPAREN
 
 %%
 
 program:
-        program expr '\n'         { printf("%d\n", $2); }
+        program OPAREN expr CPAREN '\n' { printf("%d\n", $3); }
         |
         ;
 

@@ -5,13 +5,14 @@
 
 %%
 
+\(      return OPAREN;
 [0-9]+	{
             yylval = atoi(yytext);
             return INTEGER;
         }
 [-+\n]  return *yytext;
 [ \t]   ; /* skip whitespace */
-[()]    ; /* ignore parens - for now */
+\)      return CPAREN;
 .	yyerror("invalid character");
 %%
 
